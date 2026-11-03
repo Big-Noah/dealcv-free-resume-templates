@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!--
+  DealCV Free Resume Template · Skyline (Minimal Blue)
+  ================================================================
+  By DealCV (https://dealcv.com) — free resume template, MIT licensed.
+  Forked from Chasen-Liao/resume-skills (MIT). Original copyright retained in LICENSE.
+  Free to use, modify, and share. Replace all example content with your own information.
+  Print: open in browser → Ctrl/Cmd+P → "Save as PDF" (A4, margins none).
+-->
+<html lang="en" data-resume-editor-template="dealcv-skyline" data-resume-editor-version="2" data-resume-layout="full-page" data-resume-demo="true">
+<head>
+  <meta charset="UTF-8">
+  <title>DealCV Free Resume Template · Skyline</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      --resume-density: 1;
+      --page-width: 210mm;
+      --page-height: 297mm;
+      --page-margin: 12mm;
+      --resume-bottom-margin: 10mm;
+      --content-width: 186mm;
+
+      /* Typography */
+      --fs-name: 27px;
+      --fs-role: 11.5px;
+      --fs-section: 10.5px;
+      --fs-body: 10px;
+      --fs-meta: 8.8px;
+      --lh-body: 1.38;
+      --lh-meta: 1.35;
+
+      /* Color — Skyline navy & blue */
+      --color-primary: #0B2447;
+      --color-accent: #2563EB;
+      --color-bg: #FFFFFF;
+      --color-fg: #1F2937;
+      --color-muted: #5B6B7F;
+      --color-hairline: #D8DEE8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #EEF1F6;
+      font-family: 'Inter', -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
+      color: var(--color-fg);
+      display: flex;
+      justify-content: center;
+      padding: 24px 0;
+    }
+
+    .resume {
+      width: var(--page-width);
+      min-height: var(--page-height);
+      background: var(--color-bg);
+      padding: var(--page-margin);
+      box-shadow: 0 12px 32px rgba(11, 36, 71, 0.10);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* === Header — open, no boxes === */
+    .resume-header {
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--color-hairline);
+      margin-bottom: 14px;
+    }
+
+    .resume-header h1 {
+      font-family: 'Manrope', sans-serif;
+      font-size: var(--fs-name);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--color-primary);
+      line-height: 1.12;
+    }
+
+    .resume-header .role {
+      font-family: 'Manrope', sans-serif;
+      font-size: var(--fs-role);
+      font-weight: 600;
+      color: var(--color-accent);
+      letter-spacing: 0.03em;
+      margin-top: 3px;
+    }
+
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px 18px;
+      margin-top: 9px;
+      font-size: var(--fs-meta);
+      color: var(--color-muted);
+    }
+
+    .contact-line span { white-space: nowrap; }
+
+    /* === Sections — hairline + letter-spaced label, no frames === */
+    .section { margin-bottom: 13px; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 7px;
+    }
+
+    .section-title .label {
+      font-family: 'Manrope', sans-serif;
+      font-size: var(--fs-section);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      white-space: nowrap;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--color-hairline);
+    }
+
+    .profile-text {
+      font-size: var(--fs-body);
+      color: var(--color-fg);
+      text-align: justify;
+      max-width: 172mm;
+    }
+
+    /* === Experience entries — whitespace-driven, no borders === */
+    .entry { margin-bottom: 9px; }
+
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 2.5px;
+    }
+
+    .entry-title { font-weight: 600; color: var(--color-primary); font-size: var(--fs-body); }
+
+    .entry-org { font-weight: 500; color: var(--color-fg); }
+
+    .entry-date {
+      font-size: var(--fs-meta);
+      color: var(--color-muted);
+      white-space: nowrap;
+    }
+
+    ul.bullets {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.bullets li {
+      position: relative;
+      padding-left: 11px;
+      margin-bottom: 2px;
+      text-align: justify;
+    }
+
+    ul.bullets li::before {
+      content: "";
+      position: absolute;
+      left: 1px;
+      top: 0.58em;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+
+    /* === One-line rows (education) === */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 3px;
+    }
+
+    .edu-row .degree { font-weight: 600; color: var(--color-primary); }
+
+    .edu-row .school { color: var(--color-fg); }
+
+    /* === Skills — flowing text, no boxes === */
+    .skills-line {
+      font-size: var(--fs-body);
+      color: var(--color-fg);
+      text-align: justify;
+    }
+
+    .skills-line strong {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    /* === Print === */
+    @page { size: A4; margin: 0; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .resume { box-shadow: none; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+  </style>
+  <style>
+    /* === DealCV badge (screen only, hidden on print) === */
+    .dealcv-badge {
+      position: fixed; top: 8px; left: 8px; z-index: 9999;
+      padding: 4px 10px; background: #0B2447; color: #fff;
+      border-radius: 3px;
+      font: 600 11px/1.4 'Inter', sans-serif;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .dealcv-badge a { color: #fff; text-decoration: none; }
+    .dealcv-badge a:hover { color: #7FB3E8; }
+    .dealcv-demo-tag {
+      position: fixed; top: 8px; right: 8px; z-index: 9999;
+      padding: 4px 8px; background: #7f1d1d; color: #fff;
+      border-radius: 3px;
+      font: 500 11px/1.4 'Inter', sans-serif;
+    }
+    @media print {
+      .dealcv-badge, .dealcv-demo-tag { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div role="note" class="dealcv-badge"><a href="https://dealcv.com" target="_blank" rel="noopener">DealCV Free Resume Template · dealcv.com</a></div>
+  <div role="note" class="dealcv-demo-tag">Example content · replace with your own</div>
+
+  <div class="resume">
+    <!-- Header -->
+    <header class="resume-header">
+      <h1 data-resume-editor-id="profile-name">Sarah Mitchell</h1>
+      <div class="role" data-resume-editor-id="profile-role">Senior Product Manager · B2B SaaS</div>
+      <div class="contact-line">
+        <span data-resume-editor-id="profile-location">San Francisco, CA</span>
+        <span data-resume-editor-id="profile-email">sarah.mitchell@email.com</span>
+        <span data-resume-editor-id="profile-phone">(415) 555-0134</span>
+        <span data-resume-editor-id="profile-linkedin">linkedin.com/in/sarahmitchell</span>
+        <span data-resume-editor-id="profile-github">github.com/sarahmitchell</span>
+      </div>
+    </header>
+
+    <!-- Profile -->
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-profile-title"><span class="label">Profile</span></h2>
+      <p class="profile-text" data-resume-editor-id="profile-summary">
+        Product leader with 8+ years shipping B2B SaaS platforms from zero to scale. Proven record of
+        turning ambiguous problems into measurable growth — $4.2M ARR in 12 months, 22% trial-to-paid
+        conversion lift, and 14% churn reduction through experimentation and customer research.
+        Comfortable owning strategy, roadmap, and execution across cross-functional teams of 10+.
+      </p>
+    </section>
+
+    <!-- Experience -->
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-experience-title"><span class="label">Experience</span></h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-1-title">Senior Product Manager</span> · <span class="entry-org" data-resume-editor-id="experience-1-org">CloudFlow Inc.</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-1-date">2022 — Present · San Francisco, CA</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-1-bullet-1">Led end-to-end launch of an analytics platform serving 12,000+ teams, driving <strong>$4.2M ARR</strong> within 12 months (144% of target).</li>
+          <li data-resume-editor-id="experience-1-bullet-2">Ran 40+ A/B tests across onboarding and pricing; lifted trial-to-paid conversion <strong>22%</strong> and reduced churn <strong>14%</strong>.</li>
+          <li data-resume-editor-id="experience-1-bullet-3">Directed roadmap for a cross-functional team of 11 engineers, designers and researchers; shipped 6 major releases ahead of schedule.</li>
+          <li data-resume-editor-id="experience-1-bullet-4">Partnered with sales to define enterprise packaging and SLA; closed 3 six-figure deals worth <strong>$1.8M</strong> in new pipeline.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-2-title">Product Manager</span> · <span class="entry-org" data-resume-editor-id="experience-2-org">DataPoint Labs</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-2-date">2019 — 2022 · Austin, TX</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-2-bullet-1">Grew monthly active users from 180K to 260K by redesigning onboarding and activation flows.</li>
+          <li data-resume-editor-id="experience-2-bullet-2">Shipped self-serve onboarding that lifted activation <strong>18%</strong> and drove <strong>$1.2M</strong> in upsell revenue.</li>
+          <li data-resume-editor-id="experience-2-bullet-3">Introduced a customer feedback loop (NPS + win/loss reviews); raised CSAT from 71 to 88 within two quarters.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-3-title">Associate Product Manager</span> · <span class="entry-org" data-resume-editor-id="experience-3-org">BrightAnalytics</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-3-date">2017 — 2019 · Chicago, IL</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-3-bullet-1">Prioritized backlog across 3 scrum teams; reduced average release cycle by <strong>30%</strong>.</li>
+          <li data-resume-editor-id="experience-3-bullet-2">Analyzed usage data to deprecate 15 low-value features, cutting support tickets by <strong>12%</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-education-title"><span class="label">Education</span></h2>
+      <div class="edu-row">
+        <div><span class="degree" data-resume-editor-id="education-1-degree">M.S. Human-Computer Interaction</span> · <span class="school" data-resume-editor-id="education-1-school">Northwestern University</span></div>
+        <div class="entry-date" data-resume-editor-id="education-1-date">2015 — 2017</div>
+      </div>
+      <div class="edu-row">
+        <div><span class="degree" data-resume-editor-id="education-2-degree">B.A. Economics</span> · <span class="school" data-resume-editor-id="education-2-school">University of Illinois Urbana-Champaign</span></div>
+        <div class="entry-date" data-resume-editor-id="education-2-date">2011 — 2015</div>
+      </div>
+    </section>
+
+    <!-- Skills & Certifications -->
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-skills-title"><span class="label">Skills &amp; Certifications</span></h2>
+      <p class="skills-line" data-resume-editor-id="skills-summary">
+        <strong>Product:</strong> Product strategy, roadmap, discovery, pricing &amp; packaging, experimentation (A/B testing)
+        <br><strong>Tools:</strong> SQL, Figma, Amplitude, Mixpanel, Jira, Notion, Python (basic)
+        <br><strong>Certifications:</strong> Certified Scrum Product Owner (CSPO) · Pragmatic Institute Product Management
+        <br><strong>Languages:</strong> English (native) · Spanish (professional working proficiency)
+      </p>
+    </section>
+  </div>
+</body>
+</html>

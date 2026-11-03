@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!--
+  DealCV Free Resume Template · Paper (Japanese Minimal)
+  ================================================================
+  By DealCV (https://dealcv.com) — free resume template, MIT licensed.
+  Forked from Chasen-Liao/resume-skills (MIT). Original copyright retained in LICENSE.
+  Free to use, modify, and share. Replace all example content with your own information.
+  Print: open in browser → Ctrl/Cmd+P → "Save as PDF" (A4, margins none).
+-->
+<html lang="en" data-resume-editor-template="dealcv-paper" data-resume-editor-version="2" data-resume-layout="full-page" data-resume-demo="true">
+<head>
+  <meta charset="UTF-8">
+  <title>DealCV Free Resume Template · Paper</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+    :root {
+      --resume-density: 1;
+      --page-width: 210mm;
+      --page-height: 297mm;
+      --page-margin: 15mm;
+      --resume-bottom-margin: 10mm;
+
+      /* Typography */
+      --fs-name: 25px;
+      --fs-role: 10.5px;
+      --fs-section: 9.5px;
+      --fs-body: 10px;
+      --fs-meta: 8.8px;
+      --lh-body: 1.5;
+      --lh-meta: 1.45;
+
+      /* Color — washi paper & ink with vermilion */
+      --color-primary: #23201B;
+      --color-accent: #A8402F;
+      --color-bg: #FBF9F4;
+      --color-fg: #33302A;
+      --color-muted: #7E786C;
+      --color-hairline: #DDD6C8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #EDE8DE;
+      font-family: 'Inter', -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
+      color: var(--color-fg);
+      display: flex;
+      justify-content: center;
+      padding: 24px 0;
+    }
+
+    .resume {
+      width: var(--page-width);
+      min-height: var(--page-height);
+      background: var(--color-bg);
+      padding: var(--page-margin);
+      box-shadow: 0 12px 32px rgba(35, 32, 27, 0.10);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* === Header — quiet, spacious === */
+    .resume-header {
+      padding-bottom: 16px;
+      border-bottom: 0.5px solid var(--color-hairline);
+      margin-bottom: 18px;
+    }
+
+    .resume-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-name);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--color-primary);
+      line-height: 1.1;
+    }
+
+    .resume-header .role {
+      font-size: var(--fs-role);
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-top: 7px;
+    }
+
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px 20px;
+      margin-top: 10px;
+      font-size: var(--fs-meta);
+      color: var(--color-muted);
+      font-weight: 300;
+    }
+
+    .contact-line span { white-space: nowrap; }
+
+    /* === Sections — generous whitespace, letter-spaced labels === */
+    .section { margin-bottom: 16px; }
+
+    .section-title {
+      font-size: var(--fs-section);
+      font-weight: 500;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .profile-text {
+      font-size: var(--fs-body);
+      color: var(--color-fg);
+      text-align: justify;
+      font-weight: 300;
+    }
+
+    /* === Entries === */
+    .entry { margin-bottom: 12px; }
+
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 3px;
+    }
+
+    .entry-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--color-primary);
+    }
+
+    .entry-org {
+      font-size: var(--fs-body);
+      font-weight: 400;
+      color: var(--color-fg);
+    }
+
+    .entry-date {
+      font-size: var(--fs-meta);
+      color: var(--color-muted);
+      white-space: nowrap;
+      font-weight: 300;
+    }
+
+    ul.bullets { list-style: none; padding-left: 0; }
+
+    ul.bullets li {
+      position: relative;
+      padding-left: 12px;
+      margin-bottom: 2.5px;
+      text-align: justify;
+      font-weight: 300;
+    }
+
+    ul.bullets li::before {
+      content: "・";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    /* === Education === */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .edu-row .degree {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 12.5px;
+      color: var(--color-primary);
+    }
+
+    /* === Skills === */
+    .skills-line { text-align: justify; font-weight: 300; }
+
+    .skills-line strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    /* === Print === */
+    @page { size: A4; margin: 0; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .resume { box-shadow: none; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+  </style>
+  <style>
+    /* === DealCV badge (screen only, hidden on print) === */
+    .dealcv-badge {
+      position: fixed; top: 8px; left: 8px; z-index: 9999;
+      padding: 4px 10px; background: #23201B; color: #fff;
+      border-radius: 3px;
+      font: 600 11px/1.4 'Inter', sans-serif;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .dealcv-badge a { color: #fff; text-decoration: none; }
+    .dealcv-badge a:hover { color: #D08A78; }
+    .dealcv-demo-tag {
+      position: fixed; top: 8px; right: 8px; z-index: 9999;
+      padding: 4px 8px; background: #7f1d1d; color: #fff;
+      border-radius: 3px;
+      font: 500 11px/1.4 'Inter', sans-serif;
+    }
+    @media print {
+      .dealcv-badge, .dealcv-demo-tag { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div role="note" class="dealcv-badge"><a href="https://dealcv.com" target="_blank" rel="noopener">DealCV Free Resume Template · dealcv.com</a></div>
+  <div role="note" class="dealcv-demo-tag">Example content · replace with your own</div>
+
+  <div class="resume">
+    <header class="resume-header">
+      <h1 data-resume-editor-id="profile-name">Kenji Tanaka</h1>
+      <div class="role" data-resume-editor-id="profile-role">Strategy Consultant</div>
+      <div class="contact-line">
+        <span data-resume-editor-id="profile-location">Kyoto, Japan</span>
+        <span data-resume-editor-id="profile-email">kenji.tanaka@email.com</span>
+        <span data-resume-editor-id="profile-phone">+81 75-555-0142</span>
+        <span data-resume-editor-id="profile-linkedin">linkedin.com/in/kenjitanaka</span>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-profile-title">Profile</h2>
+      <p class="profile-text" data-resume-editor-id="profile-summary">
+        Strategy consultant with six years advising consumer, retail and technology companies across Japan and
+        Asia-Pacific. Comfortable from problem framing to board presentation — led 12+ engagements spanning
+        market entry, digital transformation and portfolio strategy, with recommendations that secured
+        $180M in identified opportunity and a 15% margin uplift for a top-tier retailer. Native Japanese,
+        fluent English, trained in financial modeling and structured problem solving.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-experience-title">Experience</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-1-title">Consultant, Strategy &amp; Operations</span> · <span class="entry-org" data-resume-editor-id="experience-1-org">Kansai Strategy Group</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-1-date">2020 — Present · Kyoto</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-1-bullet-1">Delivered 12+ strategy engagements for consumer and retail clients; 9 recommendations adopted at board level.</li>
+          <li data-resume-editor-id="experience-1-bullet-2">Led market-entry study for a global beverage brand entering Japan, identifying a <strong>$180M</strong> five-year opportunity and a 3-phase launch plan.</li>
+          <li data-resume-editor-id="experience-1-bullet-3">Ran a digital transformation diagnostic for a top-3 Japanese retailer; prioritized 20 initiatives delivering a <strong>15%</strong> margin uplift.</li>
+          <li data-resume-editor-id="experience-1-bullet-4">Managed 4 analyst teams; built the firm's Japan market-entry playbook now used across the Asia practice.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-2-title">Senior Analyst</span> · <span class="entry-org" data-resume-editor-id="experience-2-org">Tokyo Retail Institute</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-2-date">2017 — 2020 · Tokyo</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-2-bullet-1">Built the financial model for a 40-store chain expansion used to secure <strong>$60M</strong> in growth funding.</li>
+          <li data-resume-editor-id="experience-2-bullet-2">Conducted consumer research across 8 cities (2,400+ surveys) informing store format redesign.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-3-title">Analyst</span> · <span class="entry-org" data-resume-editor-id="experience-3-org">Global Advisory Partners</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-3-date">2015 — 2017 · Osaka</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-3-bullet-1">Supported 5 M&amp;A diligence projects across food and logistics; contributed to 3 successful closes.</li>
+          <li data-resume-editor-id="experience-3-bullet-2">Produced market maps and competitor analysis for a cross-border e-commerce entry study.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-education-title">Education</h2>
+      <div class="edu-row">
+        <div><span class="degree" data-resume-editor-id="education-1-degree">M.A. Economics</span> · The University of Tokyo</div>
+        <div class="entry-date" data-resume-editor-id="education-1-date">2013 — 2015</div>
+      </div>
+      <div class="edu-row">
+        <div><span class="degree" data-resume-editor-id="education-2-degree">B.A. Economics</span> · Keio University</div>
+        <div class="entry-date" data-resume-editor-id="education-2-date">2009 — 2013</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-skills-title">Skills &amp; Languages</h2>
+      <p class="skills-line" data-resume-editor-id="skills-summary">
+        <strong>Consulting:</strong> Market entry, digital transformation, portfolio strategy, commercial due diligence, workshop facilitation
+        <br><strong>Analytical:</strong> Financial modeling (DCF, LBO), data analysis (Excel, Python, SQL), survey design
+        <br><strong>Languages:</strong> Japanese (native) · English (fluent, TOEIC 980) · Mandarin (conversational)
+      </p>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!--
+  DealCV Free Resume Template · Classic Executive
+  ================================================================
+  By DealCV (https://dealcv.com) — free resume template, MIT licensed.
+  Forked from Chasen-Liao/resume-skills (MIT). Original copyright retained in LICENSE.
+  Free to use, modify, and share. Replace all example content with your own information.
+  Print: open in browser → Ctrl/Cmd+P → "Save as PDF" (A4, margins none).
+-->
+<html lang="en" data-resume-editor-template="dealcv-classic-executive" data-resume-editor-version="2" data-resume-layout="full-page" data-resume-demo="true">
+<head>
+  <meta charset="UTF-8">
+  <title>DealCV Free Resume Template · Classic Executive</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --resume-density: 1;
+      --page-width: 210mm;
+      --page-height: 297mm;
+      --page-margin: 13mm;
+      --resume-bottom-margin: 10mm;
+
+      /* Typography */
+      --fs-name: 26px;
+      --fs-role: 11px;
+      --fs-section: 10px;
+      --fs-body: 10.3px;
+      --fs-meta: 9px;
+      --lh-body: 1.42;
+      --lh-meta: 1.4;
+
+      /* Color — classic navy & gold */
+      --color-primary: #16283C;
+      --color-accent: #A67C2E;
+      --color-bg: #FFFFFF;
+      --color-fg: #232A31;
+      --color-muted: #5C6773;
+      --color-hairline: #C9CFD6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #ECE9E3;
+      font-family: 'Inter', -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
+      color: var(--color-fg);
+      display: flex;
+      justify-content: center;
+      padding: 24px 0;
+    }
+
+    .resume {
+      width: var(--page-width);
+      min-height: var(--page-height);
+      background: var(--color-bg);
+      padding: var(--page-margin);
+      box-shadow: 0 12px 32px rgba(22, 40, 60, 0.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* === Header — centered, classic === */
+    .resume-header {
+      text-align: center;
+      padding-bottom: 13px;
+      border-bottom: 1.5px solid var(--color-primary);
+      margin-bottom: 15px;
+    }
+
+    .resume-header h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: var(--fs-name);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--color-primary);
+      line-height: 1.1;
+    }
+
+    .resume-header .role {
+      font-family: 'EB Garamond', serif;
+      font-size: var(--fs-role);
+      font-style: italic;
+      color: var(--color-accent);
+      margin-top: 2px;
+    }
+
+    .contact-line {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 3px 14px;
+      margin-top: 8px;
+      font-size: var(--fs-meta);
+      color: var(--color-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .contact-line span { white-space: nowrap; }
+
+    /* === Sections === */
+    .section { margin-bottom: 12px; }
+
+    .section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: var(--fs-section);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 5px;
+      padding-bottom: 3px;
+      border-bottom: 0.5px solid var(--color-hairline);
+    }
+
+    .profile-text {
+      font-size: var(--fs-body);
+      color: var(--color-fg);
+      text-align: justify;
+    }
+
+    /* === Entries === */
+    .entry { margin-bottom: 8px; }
+
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+
+    .entry-title {
+      font-family: 'EB Garamond', serif;
+      font-weight: 700;
+      font-size: 11.5px;
+      color: var(--color-primary);
+    }
+
+    .entry-org { font-weight: 500; }
+
+    .entry-date {
+      font-size: var(--fs-meta);
+      color: var(--color-muted);
+      white-space: nowrap;
+    }
+
+    ul.bullets {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.bullets li {
+      position: relative;
+      padding-left: 13px;
+      margin-bottom: 1.5px;
+      text-align: justify;
+    }
+
+    ul.bullets li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+    }
+
+    /* === Education === */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+
+    .edu-row .degree {
+      font-family: 'EB Garamond', serif;
+      font-weight: 700;
+      font-size: 11px;
+      color: var(--color-primary);
+    }
+
+    .edu-row .school { font-weight: 400; }
+
+    /* === Skills === */
+    .skills-line { text-align: justify; }
+
+    .skills-line strong {
+      font-family: 'EB Garamond', serif;
+      font-size: 11px;
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    /* === Print === */
+    @page { size: A4; margin: 0; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .resume { box-shadow: none; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+  </style>
+  <style>
+    /* === DealCV badge (screen only, hidden on print) === */
+    .dealcv-badge {
+      position: fixed; top: 8px; left: 8px; z-index: 9999;
+      padding: 4px 10px; background: #16283C; color: #fff;
+      border-radius: 3px;
+      font: 600 11px/1.4 'Inter', sans-serif;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .dealcv-badge a { color: #fff; text-decoration: none; }
+    .dealcv-badge a:hover { color: #D4B678; }
+    .dealcv-demo-tag {
+      position: fixed; top: 8px; right: 8px; z-index: 9999;
+      padding: 4px 8px; background: #7f1d1d; color: #fff;
+      border-radius: 3px;
+      font: 500 11px/1.4 'Inter', sans-serif;
+    }
+    @media print {
+      .dealcv-badge, .dealcv-demo-tag { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div role="note" class="dealcv-badge"><a href="https://dealcv.com" target="_blank" rel="noopener">DealCV Free Resume Template · dealcv.com</a></div>
+  <div role="note" class="dealcv-demo-tag">Example content · replace with your own</div>
+
+  <div class="resume">
+    <header class="resume-header">
+      <h1 data-resume-editor-id="profile-name">James R. Whitfield</h1>
+      <div class="role" data-resume-editor-id="profile-role">Chief Financial Officer</div>
+      <div class="contact-line">
+        <span data-resume-editor-id="profile-location">New York, NY</span>
+        <span data-resume-editor-id="profile-email">james.whitfield@email.com</span>
+        <span data-resume-editor-id="profile-phone">(212) 555-0148</span>
+        <span data-resume-editor-id="profile-linkedin">linkedin.com/in/jameswhitfield</span>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-profile-title">Profile</h2>
+      <p class="profile-text" data-resume-editor-id="profile-summary">
+        CFO and finance executive with 15 years across manufacturing, consumer goods and private equity-backed
+        companies, from $80M to $1.2B in revenue. Deep experience in capital markets, M&amp;A diligence, FP&amp;A,
+        treasury and operational turnarounds — has raised $340M in debt and equity and reduced operating costs
+        by 18% without sacrificing growth. Trusted board-level partner with a track record of preparing
+        companies for exits and public-market readiness.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-experience-title">Experience</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-1-title">Chief Financial Officer</span> · <span class="entry-org" data-resume-editor-id="experience-1-org">Meridian Manufacturing Group</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-1-date">2020 — Present · New York, NY</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-1-bullet-1">Lead a finance organization of 28 professionals across FP&amp;A, treasury, tax, and accounting for a $520M manufacturer.</li>
+          <li data-resume-editor-id="experience-1-bullet-2">Closed a <strong>$240M</strong> refinancing that reduced blended interest cost by 190 bps and extended maturity by 5 years.</li>
+          <li data-resume-editor-id="experience-1-bullet-3">Executed a margin-improvement program that cut operating costs <strong>18%</strong> while holding customer satisfaction at record levels.</li>
+          <li data-resume-editor-id="experience-1-bullet-4">Prepared the company for a strategic sale; led data room, QoE and carve-out planning with advisors.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-2-title">VP, Financial Planning &amp; Analysis</span> · <span class="entry-org" data-resume-editor-id="experience-2-org">Atlas Consumer Brands</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-2-date">2015 — 2020 · Boston, MA</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-2-bullet-1">Built and owned the annual operating plan for a <strong>$1.2B</strong> consumer business across 14 countries.</li>
+          <li data-resume-editor-id="experience-2-bullet-2">Improved rolling forecast accuracy from 82% to <strong>95%</strong> by redesigning the planning model and monthly cadence.</li>
+          <li data-resume-editor-id="experience-2-bullet-3">Led financial diligence for 4 acquisitions totaling <strong>$310M</strong>, two of which closed ahead of synergy targets.</li>
+          <li data-resume-editor-id="experience-2-bullet-4">Introduced driver-based unit economics reporting used by the board for pricing and mix decisions.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-3-title">Finance Director</span> · <span class="entry-org" data-resume-editor-id="experience-3-org">Halstead Capital Partners</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-3-date">2011 — 2015 · Chicago, IL</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-3-bullet-1">Managed finance for a <strong>$400M</strong> portfolio of eight portfolio companies across industrials and healthcare.</li>
+          <li data-resume-editor-id="experience-3-bullet-2">Drove quarterly board reporting and covenant compliance; maintained a clean track record across all lenders.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-education-title">Education</h2>
+      <div class="edu-row">
+        <div><span class="degree" data-resume-editor-id="education-1-degree">MBA, Finance</span> · <span class="school" data-resume-editor-id="education-1-school">Harvard Business School</span></div>
+        <div class="entry-date" data-resume-editor-id="education-1-date">2009 — 2011</div>
+      </div>
+      <div class="edu-row">
+        <div><span class="degree" data-resume-editor-id="education-2-degree">B.S. Economics, Wharton</span> · <span class="school" data-resume-editor-id="education-2-school">University of Pennsylvania</span></div>
+        <div class="entry-date" data-resume-editor-id="education-2-date">2003 — 2007</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-skills-title">Certifications &amp; Expertise</h2>
+      <p class="skills-line" data-resume-editor-id="skills-summary">
+        <strong>Certifications:</strong> CPA (inactive) · CFA Level III candidate
+        <br><strong>Finance:</strong> M&amp;A diligence, FP&amp;A, treasury &amp; capital markets, board reporting, ERP transformations (SAP S/4HANA, Oracle)
+        <br><strong>Leadership:</strong> 15+ years managing teams of 5–28; MBA case-method instructor, Wharton EMBA program
+      </p>
+    </section>
+  </div>
+</body>
+</html>

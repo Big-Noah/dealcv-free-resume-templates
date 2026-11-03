@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--
+  DealCV Free Resume Template · Statement (Creative Bold)
+  ================================================================
+  By DealCV (https://dealcv.com) — free resume template, MIT licensed.
+  Forked from Chasen-Liao/resume-skills (MIT). Original copyright retained in LICENSE.
+  Free to use, modify, and share. Replace all example content with your own information.
+  Print: open in browser → Ctrl/Cmd+P → "Save as PDF" (A4, margins none).
+-->
+<html lang="en" data-resume-editor-template="dealcv-statement" data-resume-editor-version="2" data-resume-layout="full-page" data-resume-demo="true">
+<head>
+  <meta charset="UTF-8">
+  <title>DealCV Free Resume Template · Statement</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --resume-density: 1;
+      --page-width: 210mm;
+      --page-height: 297mm;
+      --page-margin: 13mm;
+      --resume-bottom-margin: 10mm;
+
+      /* Typography */
+      --fs-name: 34px;
+      --fs-role: 12px;
+      --fs-section: 12px;
+      --fs-body: 10.2px;
+      --fs-meta: 9px;
+      --lh-body: 1.4;
+      --lh-meta: 1.35;
+
+      /* Color — ink on paper with coral accent */
+      --color-primary: #101014;
+      --color-accent: #FF5A36;
+      --color-bg: #FFFFFF;
+      --color-fg: #1C1C21;
+      --color-muted: #6E6E78;
+      --color-hairline: #E4E4E9;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #F2F0EE;
+      font-family: 'Inter', -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
+      color: var(--color-fg);
+      display: flex;
+      justify-content: center;
+      padding: 24px 0;
+    }
+
+    .resume {
+      width: var(--page-width);
+      min-height: var(--page-height);
+      background: var(--color-bg);
+      padding: var(--page-margin);
+      box-shadow: 0 12px 32px rgba(16, 16, 20, 0.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* === Header — bold editorial === */
+    .resume-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 18px;
+      padding-bottom: 14px;
+      border-bottom: 3px solid var(--color-primary);
+      margin-bottom: 16px;
+    }
+
+    .resume-header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: var(--fs-name);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 0.98;
+      color: var(--color-primary);
+      text-transform: uppercase;
+    }
+
+    .role-block {
+      text-align: right;
+    }
+
+    .role-block .role {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: var(--fs-role);
+      font-weight: 600;
+      color: var(--color-accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 2px 14px;
+      margin-top: 6px;
+      font-size: var(--fs-meta);
+      color: var(--color-muted);
+    }
+
+    .contact-line span { white-space: nowrap; }
+
+    /* === Sections — numbered labels, generous whitespace === */
+    .section { margin-bottom: 15px; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .section-title .no {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: var(--fs-section);
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+
+    .section-title .label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: var(--fs-section);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--color-hairline);
+    }
+
+    .profile-text {
+      font-size: var(--fs-body);
+      color: var(--color-fg);
+      text-align: justify;
+    }
+
+    /* === Entries === */
+    .entry { margin-bottom: 10px; }
+
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 2.5px;
+    }
+
+    .entry-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 11.5px;
+      color: var(--color-primary);
+    }
+
+    .entry-org {
+      font-weight: 500;
+      color: var(--color-fg);
+    }
+
+    .entry-date {
+      font-size: var(--fs-meta);
+      color: var(--color-muted);
+      white-space: nowrap;
+    }
+
+    ul.bullets { list-style: none; padding-left: 0; }
+
+    ul.bullets li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 2px;
+      text-align: justify;
+    }
+
+    ul.bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.52em;
+      width: 7px;
+      height: 3px;
+      background: var(--color-accent);
+    }
+
+    /* === Education & awards === */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 3px;
+    }
+
+    .edu-row .degree {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      color: var(--color-primary);
+    }
+
+    /* === Skills === */
+    .skills-line { text-align: justify; }
+
+    .skills-line strong {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    /* === Print === */
+    @page { size: A4; margin: 0; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .resume { box-shadow: none; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+  </style>
+  <style>
+    /* === DealCV badge (screen only, hidden on print) === */
+    .dealcv-badge {
+      position: fixed; top: 8px; left: 8px; z-index: 9999;
+      padding: 4px 10px; background: #101014; color: #fff;
+      border-radius: 3px;
+      font: 600 11px/1.4 'Inter', sans-serif;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .dealcv-badge a { color: #fff; text-decoration: none; }
+    .dealcv-badge a:hover { color: #FF8A6E; }
+    .dealcv-demo-tag {
+      position: fixed; top: 8px; right: 8px; z-index: 9999;
+      padding: 4px 8px; background: #7f1d1d; color: #fff;
+      border-radius: 3px;
+      font: 500 11px/1.4 'Inter', sans-serif;
+    }
+    @media print {
+      .dealcv-badge, .dealcv-demo-tag { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div role="note" class="dealcv-badge"><a href="https://dealcv.com" target="_blank" rel="noopener">DealCV Free Resume Template · dealcv.com</a></div>
+  <div role="note" class="dealcv-demo-tag">Example content · replace with your own</div>
+
+  <div class="resume">
+    <header class="resume-header">
+      <h1 data-resume-editor-id="profile-name">Elena V.<br>Rodriguez</h1>
+      <div class="role-block">
+        <div class="role" data-resume-editor-id="profile-role">Creative Director</div>
+        <div class="contact-line">
+          <span data-resume-editor-id="profile-location">Brooklyn, NY</span>
+          <span data-resume-editor-id="profile-email">elena.rodriguez@email.com</span>
+          <span data-resume-editor-id="profile-phone">(917) 555-0162</span>
+          <span data-resume-editor-id="profile-behance">behance.net/elenar</span>
+          <span data-resume-editor-id="profile-linkedin">linkedin.com/in/elenar</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-profile-title"><span class="no">01</span><span class="label">Profile</span></h2>
+      <p class="profile-text" data-resume-editor-id="profile-summary">
+        Creative director with 10+ years building brands for DTC startups and global agencies. Award-winning
+        portfolio — 5 Awwwards Site of the Day wins and a Communication Arts Annual feature. Known for
+        translating founder instinct into systems that scale: brand identities, campaign engines, and design
+        teams that ship. Built a 7-person studio that grew design revenue 2× in three years.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-experience-title"><span class="no">02</span><span class="label">Experience</span></h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-1-title">Creative Director</span> · <span class="entry-org" data-resume-editor-id="experience-1-org">Form &amp; Function Studio, Brooklyn</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-1-date">2021 — Present</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-1-bullet-1">Led full rebrands for 8 DTC startups; 3 projects featured on <strong>Awwwards</strong> and 2 in <strong>Communication Arts Annual 2022</strong>.</li>
+          <li data-resume-editor-id="experience-1-bullet-2">Built and directed a design team of 7 across brand, digital and motion; cut campaign production time by <strong>40%</strong>.</li>
+          <li data-resume-editor-id="experience-1-bullet-3">Directed 60+ campaign launches for clients in fintech, health and fashion; average client brand recall up <strong>32%</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-2-title">Senior Brand Designer</span> · <span class="entry-org" data-resume-editor-id="experience-2-org">Helio Creative Agency</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-2-date">2017 — 2021 · New York, NY</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-2-bullet-1">Art-directed 40+ identity systems for fintech and fashion clients, including 2 category-defining launches.</li>
+          <li data-resume-editor-id="experience-2-bullet-2">Grew agency design revenue from <strong>$1.2M to $2.4M</strong> by winning strategic brand accounts and pitching new work.</li>
+          <li data-resume-editor-id="experience-2-bullet-3">Won <strong>3× Awwwards Site of the Day</strong> for client work; featured in It's Nice That and Design Week.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-3-title">Brand Designer</span> · <span class="entry-org" data-resume-editor-id="experience-3-org">Freelance</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-3-date">2014 — 2017</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-3-bullet-1">Delivered 25+ brand identities for early-stage startups across SaaS, food and culture.</li>
+          <li data-resume-editor-id="experience-3-bullet-2">Established a repeat-client rate of <strong>70%</strong> through end-to-end identity, packaging and launch support.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-education-title"><span class="no">03</span><span class="label">Education</span></h2>
+      <div class="edu-row">
+        <div><span class="degree" data-resume-editor-id="education-1-degree">BFA, Graphic Design</span> · Rhode Island School of Design (RISD)</div>
+        <div class="entry-date" data-resume-editor-id="education-1-date">2010 — 2014</div>
+      </div>
+      <div class="edu-row" style="margin-top: 5px;">
+        <div><span class="degree">Awards</span> · Awwwards SOTD ×5 · Communication Arts Annual 2022 · D&amp;AD Pencil (shortlist 2023)</div>
+        <div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-skills-title"><span class="no">04</span><span class="label">Skills</span></h2>
+      <p class="skills-line" data-resume-editor-id="skills-summary">
+        <strong>Brand:</strong> Brand strategy, identity systems, art direction, campaign design, packaging
+        <br><strong>Tools:</strong> Figma, Adobe CC (Ps / Ai / Id / Ae), Protopie, Notion
+        <br><strong>Leadership:</strong> Team building &amp; mentorship, client presentation, creative reviews, hiring (designed the studio's first hiring playbook)
+      </p>
+    </section>
+  </div>
+</body>
+</html>

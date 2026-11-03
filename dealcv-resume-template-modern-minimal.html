@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--
+  DealCV Free Resume Template · Modern (Modern Minimal)
+  ================================================================
+  By DealCV (https://dealcv.com) — free resume template, MIT licensed.
+  Forked from Chasen-Liao/resume-skills (MIT). Original copyright retained in LICENSE.
+  Free to use, modify, and share. Replace all example content with your own information.
+  Print: open in browser → Ctrl/Cmd+P → "Save as PDF" (A4, margins none).
+-->
+<html lang="en" data-resume-editor-template="dealcv-modern" data-resume-editor-version="2" data-resume-layout="full-page" data-resume-demo="true">
+<head>
+  <meta charset="UTF-8">
+  <title>DealCV Free Resume Template · Modern</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+      --resume-density: 1;
+      --page-width: 210mm;
+      --page-height: 297mm;
+      --page-margin: 12.5mm;
+      --resume-bottom-margin: 10mm;
+
+      /* Typography */
+      --fs-name: 24px;
+      --fs-role: 11px;
+      --fs-section: 10px;
+      --fs-body: 10px;
+      --fs-meta: 8.8px;
+      --lh-body: 1.4;
+      --lh-meta: 1.35;
+
+      /* Color — graphite with indigo accent */
+      --color-primary: #111827;
+      --color-accent: #4F46E5;
+      --color-bg: #FFFFFF;
+      --color-fg: #23272F;
+      --color-muted: #6B7280;
+      --color-hairline: #E5E7EB;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #F3F4F6;
+      font-family: 'Inter', -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
+      color: var(--color-fg);
+      display: flex;
+      justify-content: center;
+      padding: 24px 0;
+    }
+
+    .resume {
+      width: var(--page-width);
+      min-height: var(--page-height);
+      background: var(--color-bg);
+      padding: var(--page-margin);
+      box-shadow: 0 12px 32px rgba(17, 24, 39, 0.10);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* === Header — clean two-column === */
+    .resume-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--color-primary);
+      margin-bottom: 14px;
+    }
+
+    .resume-header h1 {
+      font-weight: 800;
+      font-size: var(--fs-name);
+      letter-spacing: -0.025em;
+      color: var(--color-primary);
+      line-height: 1.05;
+    }
+
+    .resume-header .role {
+      font-size: var(--fs-role);
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: 0.04em;
+      margin-top: 3px;
+    }
+
+    .contact-line {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1.5px;
+      font-size: var(--fs-meta);
+      color: var(--color-muted);
+    }
+
+    .contact-line span { white-space: nowrap; }
+
+    /* === Sections === */
+    .section { margin-bottom: 13px; }
+
+    .section-title {
+      font-size: var(--fs-section);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 7px;
+    }
+
+    .profile-text {
+      font-size: var(--fs-body);
+      color: var(--color-fg);
+      text-align: justify;
+      font-weight: 400;
+    }
+
+    /* === Entries === */
+    .entry { margin-bottom: 9px; }
+
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 2.5px;
+    }
+
+    .entry-title { font-weight: 700; color: var(--color-primary); font-size: 10.8px; }
+
+    .entry-org { font-weight: 500; color: var(--color-fg); }
+
+    .entry-date {
+      font-size: var(--fs-meta);
+      color: var(--color-muted);
+      white-space: nowrap;
+    }
+
+    ul.bullets { list-style: none; padding-left: 0; }
+
+    ul.bullets li {
+      position: relative;
+      padding-left: 12px;
+      margin-bottom: 2px;
+      text-align: justify;
+    }
+
+    ul.bullets li::before {
+      content: "";
+      position: absolute;
+      left: 1px;
+      top: 0.5em;
+      width: 5px;
+      height: 2px;
+      background: var(--color-accent);
+    }
+
+    /* === Education === */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 3px;
+    }
+
+    .edu-row .degree { font-weight: 700; color: var(--color-primary); font-size: 10.8px; }
+
+    .edu-row .school { font-weight: 400; }
+
+    /* === Skills — compact chips-free line === */
+    .skills-line { text-align: justify; }
+
+    .skills-line strong { font-weight: 600; color: var(--color-primary); }
+
+    /* === Print === */
+    @page { size: A4; margin: 0; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .resume { box-shadow: none; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+  </style>
+  <style>
+    /* === DealCV badge (screen only, hidden on print) === */
+    .dealcv-badge {
+      position: fixed; top: 8px; left: 8px; z-index: 9999;
+      padding: 4px 10px; background: #111827; color: #fff;
+      border-radius: 3px;
+      font: 600 11px/1.4 'Inter', sans-serif;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .dealcv-badge a { color: #fff; text-decoration: none; }
+    .dealcv-badge a:hover { color: #A5B4FC; }
+    .dealcv-demo-tag {
+      position: fixed; top: 8px; right: 8px; z-index: 9999;
+      padding: 4px 8px; background: #7f1d1d; color: #fff;
+      border-radius: 3px;
+      font: 500 11px/1.4 'Inter', sans-serif;
+    }
+    @media print {
+      .dealcv-badge, .dealcv-demo-tag { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div role="note" class="dealcv-badge"><a href="https://dealcv.com" target="_blank" rel="noopener">DealCV Free Resume Template · dealcv.com</a></div>
+  <div role="note" class="dealcv-demo-tag">Example content · replace with your own</div>
+
+  <div class="resume">
+    <header class="resume-header">
+      <div>
+        <h1 data-resume-editor-id="profile-name">Daniel Kim</h1>
+        <div class="role" data-resume-editor-id="profile-role">Senior Software Engineer</div>
+      </div>
+      <div class="contact-line">
+        <span data-resume-editor-id="profile-location">Seattle, WA</span>
+        <span data-resume-editor-id="profile-email">daniel.kim@email.com</span>
+        <span data-resume-editor-id="profile-phone">(206) 555-0173</span>
+        <span data-resume-editor-id="profile-github">github.com/danielkim</span>
+        <span data-resume-editor-id="profile-linkedin">linkedin.com/in/danielkim</span>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-profile-title">Profile</h2>
+      <p class="profile-text" data-resume-editor-id="profile-summary">
+        Software engineer with 8+ years building large-scale distributed systems and developer platforms in Go
+        and TypeScript. Led cloud migrations serving billions of events per day, cut deployment time by 85%,
+        and shipped fraud-detection systems that saved $1.4M annually. AWS-certified, mentoring-focused, and
+        equally comfortable owning architecture, writing production code, and improving team processes.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-experience-title">Experience</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-1-title">Senior Software Engineer</span> · <span class="entry-org" data-resume-editor-id="experience-1-org">Lumen Systems</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-1-date">2021 — Present · Seattle, WA</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-1-bullet-1">Led migration of 40+ microservices to Kubernetes and GitOps; cut median deployment time by <strong>85%</strong>.</li>
+          <li data-resume-editor-id="experience-1-bullet-2">Designed an event-driven pipeline processing <strong>2B events/day</strong> with p99 latency under 200ms.</li>
+          <li data-resume-editor-id="experience-1-bullet-3">Mentored 6 engineers; improved code review turnaround by <strong>60%</strong> through pairing and CI tooling.</li>
+          <li data-resume-editor-id="experience-1-bullet-4">Introduced Terraform-based IaC across 3 AWS accounts, eliminating 90% of manual infrastructure changes.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-2-title">Software Engineer</span> · <span class="entry-org" data-resume-editor-id="experience-2-org">Cachet Payments</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-2-date">2018 — 2021 · San Francisco, CA</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-2-bullet-1">Built a real-time fraud detection service that reduced chargebacks by <strong>22%</strong>, saving <strong>$1.4M</strong> annually.</li>
+          <li data-resume-editor-id="experience-2-bullet-2">Scaled the checkout API to handle <strong>50K RPS</strong> during peak sales events with 99.99% uptime.</li>
+          <li data-resume-editor-id="experience-2-bullet-3">Owned migration from a monolith to event-sourced services; reduced on-call incidents by <strong>45%</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-3-title">Software Engineer</span> · <span class="entry-org" data-resume-editor-id="experience-3-org">Insightful Data</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-3-date">2016 — 2018 · Denver, CO</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-3-bullet-1">Developed ETL pipelines in Python processing 40TB monthly, <strong>30%</strong> faster than the legacy stack.</li>
+          <li data-resume-editor-id="experience-3-bullet-2">Built internal dashboarding platform adopted by 5 product teams for daily metric review.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-education-title">Education</h2>
+      <div class="edu-row">
+        <div><span class="degree" data-resume-editor-id="education-1-degree">B.S. Computer Science</span> · <span class="school" data-resume-editor-id="education-1-school">University of Washington</span></div>
+        <div class="entry-date" data-resume-editor-id="education-1-date">2012 — 2016</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-skills-title">Skills &amp; Certifications</h2>
+      <p class="skills-line" data-resume-editor-id="skills-summary">
+        <strong>Languages:</strong> Go, TypeScript, Python, SQL · <strong>Infra:</strong> Kubernetes, AWS, Terraform, Kafka, Redis, PostgreSQL, gRPC
+        <br><strong>Practices:</strong> Distributed systems, event-driven architecture, CI/CD, observability (Prometheus, Grafana), on-call engineering
+        <br><strong>Certifications:</strong> AWS Solutions Architect – Professional · <strong>Languages:</strong> English (native) · Korean (native)
+      </p>
+    </section>
+  </div>
+</body>
+</html>

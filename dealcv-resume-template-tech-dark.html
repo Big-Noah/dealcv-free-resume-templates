@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<!--
+  DealCV Free Resume Template · Tech Dark
+  ================================================================
+  By DealCV (https://dealcv.com) — free resume template, MIT licensed.
+  Forked from Chasen-Liao/resume-skills (MIT). Original copyright retained in LICENSE.
+  Free to use, modify, and share. Replace all example content with your own information.
+  Print: open in browser → Ctrl/Cmd+P → "Save as PDF" (A4, margins none, background graphics on).
+-->
+<html lang="en" data-resume-editor-template="dealcv-tech-dark" data-resume-editor-version="2" data-resume-layout="full-page" data-resume-demo="true">
+<head>
+  <meta charset="UTF-8">
+  <title>DealCV Free Resume Template · Tech Dark</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    :root {
+      --resume-density: 1;
+      --page-width: 210mm;
+      --page-height: 297mm;
+      --page-margin: 13mm;
+      --resume-bottom-margin: 10mm;
+
+      /* Typography */
+      --fs-name: 25px;
+      --fs-role: 11px;
+      --fs-section: 10px;
+      --fs-body: 10px;
+      --fs-meta: 8.8px;
+      --lh-body: 1.4;
+      --lh-meta: 1.35;
+
+      /* Color — deep space with cyan signal */
+      --color-primary: #E6EDF3;
+      --color-accent: #22D3EE;
+      --color-bg: #0C0E13;
+      --color-fg: #C9D1D9;
+      --color-muted: #7D8694;
+      --color-hairline: #1F2733;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #05070A;
+      font-family: 'Space Grotesk', -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
+      color: var(--color-fg);
+      display: flex;
+      justify-content: center;
+      padding: 24px 0;
+    }
+
+    .resume {
+      width: var(--page-width);
+      min-height: var(--page-height);
+      background: var(--color-bg);
+      padding: var(--page-margin);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--color-hairline);
+    }
+
+    /* === Header — terminal accent bar === */
+    .resume-header {
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--color-hairline);
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .resume-header::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -2px;
+      width: 46px;
+      height: 3px;
+      background: var(--color-accent);
+    }
+
+    .resume-header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: var(--fs-name);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--color-primary);
+      line-height: 1.1;
+    }
+
+    .resume-header .role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--fs-role);
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: 0.06em;
+      margin-top: 5px;
+    }
+
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px 18px;
+      margin-top: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.5px;
+      color: var(--color-muted);
+    }
+
+    .contact-line span { white-space: nowrap; }
+
+    /* === Sections === */
+    .section { margin-bottom: 15px; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .section-title .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--fs-section);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      white-space: nowrap;
+    }
+
+    .section-title .label::before {
+      content: "// ";
+      color: var(--color-accent);
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--color-hairline);
+    }
+
+    .profile-text {
+      font-size: var(--fs-body);
+      color: var(--color-fg);
+      text-align: justify;
+    }
+
+    /* === Entries === */
+    .entry { margin-bottom: 10px; }
+
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 2.5px;
+    }
+
+    .entry-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      color: var(--color-primary);
+    }
+
+    .entry-org {
+      font-weight: 400;
+      color: var(--color-fg);
+    }
+
+    .entry-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.5px;
+      color: var(--color-muted);
+      white-space: nowrap;
+    }
+
+    ul.bullets { list-style: none; padding-left: 0; }
+
+    ul.bullets li {
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 2.5px;
+      text-align: justify;
+    }
+
+    ul.bullets li::before {
+      content: ">";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+    }
+
+    /* === Education === */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 3px;
+    }
+
+    .edu-row .degree {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      color: var(--color-primary);
+    }
+
+    .edu-row .school { font-weight: 400; }
+
+    /* === Skills === */
+    .skills-line { text-align: justify; }
+
+    .skills-line strong {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      font-size: 9.5px;
+      color: var(--color-accent);
+    }
+
+    /* === Print === */
+    @page { size: A4; margin: 0; }
+
+    @media print {
+      body { background: #0C0E13; padding: 0; }
+      .resume { box-shadow: none; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+  </style>
+  <style>
+    /* === DealCV badge (screen only, hidden on print) === */
+    .dealcv-badge {
+      position: fixed; top: 8px; left: 8px; z-index: 9999;
+      padding: 4px 10px; background: #22D3EE; color: #0C0E13;
+      border-radius: 3px;
+      font: 600 11px/1.4 'JetBrains Mono', monospace;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+    .dealcv-badge a { color: #0C0E13; text-decoration: none; }
+    .dealcv-badge a:hover { color: #155E75; }
+    .dealcv-demo-tag {
+      position: fixed; top: 8px; right: 8px; z-index: 9999;
+      padding: 4px 8px; background: #7f1d1d; color: #fff;
+      border-radius: 3px;
+      font: 500 11px/1.4 'JetBrains Mono', monospace;
+    }
+    @media print {
+      .dealcv-badge, .dealcv-demo-tag { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div role="note" class="dealcv-badge"><a href="https://dealcv.com" target="_blank" rel="noopener">DealCV Free Template · dealcv.com</a></div>
+  <div role="note" class="dealcv-demo-tag">Example content · replace with your own</div>
+
+  <div class="resume">
+    <header class="resume-header">
+      <h1 data-resume-editor-id="profile-name">Alex Chen</h1>
+      <div class="role" data-resume-editor-id="profile-role">Staff Platform Engineer · SRE</div>
+      <div class="contact-line">
+        <span data-resume-editor-id="profile-location">Austin, TX</span>
+        <span data-resume-editor-id="profile-email">alex.chen@email.com</span>
+        <span data-resume-editor-id="profile-phone">(512) 555-0196</span>
+        <span data-resume-editor-id="profile-github">github.com/alexchen</span>
+        <span data-resume-editor-id="profile-linkedin">linkedin.com/in/alexchen</span>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-profile-title"><span class="label">Profile</span></h2>
+      <p class="profile-text" data-resume-editor-id="profile-summary">
+        Platform engineer with 7+ years running Kubernetes at scale — 300+ microservices, 12 clusters,
+        <strong>2B events/day</strong>. Built internal developer platforms that cut onboarding from two weeks to one day,
+        reduced infrastructure cost by 32% ($1.1M/year), and held 99.98% uptime across critical services.
+        Kubernetes certified (CKA/CKAD), pragmatic about reliability, and obsessed with removing toil.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-experience-title"><span class="label">Experience</span></h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-1-title">Staff Platform Engineer</span> · <span class="entry-org" data-resume-editor-id="experience-1-org">Nimbus Cloud</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-1-date">2021 — Present · Austin, TX</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-1-bullet-1">Own the platform serving 300+ microservices across <strong>12 Kubernetes clusters</strong> and 3 AWS regions.</li>
+          <li data-resume-editor-id="experience-1-bullet-2">Cut infrastructure cost by <strong>32%</strong> ($1.1M/year) through rightsizing, spot capacity and workload profiling.</li>
+          <li data-resume-editor-id="experience-1-bullet-3">Built an internal developer platform (ArgoCD + Backstage) that reduced service onboarding from <strong>2 weeks to 1 day</strong>.</li>
+          <li data-resume-editor-id="experience-1-bullet-4">Achieved <strong>99.98%</strong> uptime across critical services via SLOs, error budgets and chaos drills.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-2-title">Senior DevOps Engineer</span> · <span class="entry-org" data-resume-editor-id="experience-2-org">Vertex Games</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-2-date">2018 — 2021 · Los Angeles, CA</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-2-bullet-1">Migrated game backend to Kubernetes autoscaling, handling <strong>1M concurrent players</strong> during live events.</li>
+          <li data-resume-editor-id="experience-2-bullet-2">Reduced deployment time by <strong>75%</strong> and cut release rollbacks by 60% with progressive delivery.</li>
+          <li data-resume-editor-id="experience-2-bullet-3">Built Prometheus/Grafana observability stack adopted across 4 game titles.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title" data-resume-editor-id="experience-3-title">DevOps Engineer</span> · <span class="entry-org" data-resume-editor-id="experience-3-org">Meridian SaaS</span></div>
+          <div class="entry-date" data-resume-editor-id="experience-3-date">2016 — 2018 · Dallas, TX</div>
+        </div>
+        <ul class="bullets">
+          <li data-resume-editor-id="experience-3-bullet-1">Automated CI/CD and environment provisioning, reducing manual ops work by <strong>90%</strong>.</li>
+          <li data-resume-editor-id="experience-3-bullet-2">Led AWS cost governance initiative saving <strong>$180K</strong> in the first year.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-education-title"><span class="label">Education</span></h2>
+      <div class="edu-row">
+        <div><span class="degree" data-resume-editor-id="education-1-degree">B.S. Computer Engineering</span> · <span class="school" data-resume-editor-id="education-1-school">Texas A&amp;M University</span></div>
+        <div class="entry-date" data-resume-editor-id="education-1-date">2012 — 2016</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title" data-resume-editor-id="section-skills-title"><span class="label">Skills &amp; Certs</span></h2>
+      <p class="skills-line" data-resume-editor-id="skills-summary">
+        <strong>Platform:</strong> Kubernetes, Docker, AWS (EKS/ECS), Terraform, ArgoCD, Helm
+        <br><strong>Observability:</strong> Prometheus, Grafana, OpenTelemetry, Loki · <strong>Languages:</strong> Go, Python, Bash
+        <br><strong>Certifications:</strong> CKA · CKAD · AWS Solutions Architect Associate · <strong>Languages:</strong> English (native) · Mandarin (conversational)
+      </p>
+    </section>
+  </div>
+</body>
+</html>
